@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SoundSavvy: Text-to-Speech Soundboard</title>
+    <style>
+        body {
+            background-color: #001f3f;
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+        textarea {
+            width: 300px;
+            height: 150px;
+            background-color: #001f3f;
+            color: white;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SoundSavvy: Text-to-Speech Soundboard</h1>
+    <textarea id="textInput" rows="4" cols="50" placeholder="Type something..."></textarea><br>
+    <button onclick="speak()">Speak</button>
+
+    <script>
+        function speak() {
+            const text = document.getElementById('textInput').value;
+            const utterance = new SpeechSynthesisUtterance(text);
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>
